@@ -17,9 +17,10 @@ public class Student {
         name = sc.nextLine();
         System.out.println("Enter rno : ");
         rno = sc.nextInt();
+        sc.nextLine();
         System.out.println("Enter dept : ");
         dept = sc.nextLine();
-        sc.close();
+        // sc.close();
     }
 
     public void printData() {
@@ -31,6 +32,7 @@ public class Student {
     public static void main(String[] args) {
         Student[] a = new Student[4];
         for (int i = 0; i < 4; i++) {
+            a[i] = new Student(null, 0, null);
             a[i].getData();
         }
         for (int i = 0; i < 4; i++) {
