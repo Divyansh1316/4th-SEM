@@ -1,40 +1,59 @@
-#include<stdio.h>
-int partition(int arr[],int l,int r)
+#include <stdio.h>
+int s = 0, c = 0;
+void swap(int arr[], int i, int j)
 {
     int temp;
-    int pivot=arr[r];
-    int i=l-1;
-    for(int j=l;j<r;j++)
+    temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+    s++;
+}
+int partition(int arr[], int l, int r)
+{
+    int pivot = arr[r];
+    int i = l - 1;
+    int j;
+    for (j = l; j < r; j++)
     {
-        if(arr[j]<=pivot)
+        c++;
+        if (arr[j] <= pivot)
         {
             i++;
-            temp=arr[i];
-            arr[i]=arr[j];
-            arr[j]=temp;
+            swap(arr, i, j);
         }
     }
-    temp=arr[i+1];
-    arr[i+1]=arr[r];
-    arr[r]=temp;
-    return (i+1);
+    swap(arr, i + 1, r);
+    return (i + 1);
 }
-void quickSort(int arr[],int l,int r)
+void quickSort(int arr[], int l, int r)
 {
-    if(l<r)
+    if (l < r)
     {
-        int pi=partition(arr,l,r);
-        quickSort(arr,l,pi-1);
-        quickSort(arr,pi+1,r);
+        int pi = partition(arr, l, r);
+        quickSort(arr, l, pi - 1);
+        quickSort(arr, pi + 1, r);
     }
 }
 void main()
 {
-    int arr[5]={2,3,5,4,1};
-    int l=0,r=4;
-    quickSort(arr,l,r);
-    for(int i=0;i<5;i++)
+    int n, t;
+    printf("Enter number of test cases : ");
+    scanf("%d", &t);
+    for (int i = 0; i < t; i++)
     {
-        printf("%d",arr[i]);
+        printf("Enter size : ");
+        scanf("%d", &n);
+        int arr[n];
+        printf("Enter elements of array : ");
+        for (int i = 0; i < n; i++)
+        {
+            scanf("%d", &arr[i]);
+        }
+        quickSort(arr, 0, n - 1);
+        for (int i = 0; i < n; i++)
+        {
+            printf("%d ", arr[i]);
+        }
+        printf("%d %d", c, s);
     }
 }
