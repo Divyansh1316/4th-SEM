@@ -1,5 +1,4 @@
 #include <stdio.h>
-int swaps = 0, comp = 0;
 void countingSort(int arr[], int n)
 {
     int max = arr[0];
