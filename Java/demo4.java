@@ -7,17 +7,15 @@ abstract class Shape {
 }
 
 class Area extends Shape {
-    @Override
+
     double rectangleArea(double length, double width) {
         return length * width;
     }
 
-    @Override
     double squareArea(double side) {
         return side * side;
     }
 
-    @Override
     double circleArea(double radius) {
         return Math.PI * radius * radius;
     }
