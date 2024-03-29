@@ -57,7 +57,7 @@ class c3 {
  * import newpack1.*;
  * 
  * // different package subclass : Pvt and default can't be accessed
- * class c4 extends mypack1 {
+ * class c4 extends task5_4  {
  * public void func4() {
  * System.out.println(a);
  * // System.out.println(b); // b is pvt cant be accessed in another subclass
@@ -70,7 +70,7 @@ class c3 {
  * // different package non-subclass : Pvt,protected and default can't be
  * accessed
  * class c5 {
- * mypack1 obj = new mypack1();
+ * task5_4  obj = new task5_4 ();
  * 
  * public void func5() {
  * System.out.println(obj.a);
