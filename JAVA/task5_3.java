@@ -11,7 +11,6 @@ class myClass {
     public void func() {
         System.out.println(a);
         System.out.println(b);
-        ;
     }
 }
 
