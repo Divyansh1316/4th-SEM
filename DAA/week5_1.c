@@ -18,46 +18,30 @@ int main()
             if (arr[i] > max)
                 max = arr[i];
         }
-        for (i = 0; i < size; i++)
-        {
-            printf("%c\t", arr[i]);
-        }
-        printf("\n%c\n", max);
+      
         int n = max - 96;
-        int c[n];
+        char c[n];
         for (i = 0; i < n; i++)
         {
             c[i] = 0;
         }
         for (i = 0; i < size; i++)
         {
-            int cp = arr[i];
-            c[cp - 97] += 1;
+            
+            c[ arr[i] - 97] ++;
         }
+        int count=0;
+        int ans=0;
         for (i = 0; i < n; i++)
         {
-            printf("%d\t", c[i]);
-        }
-        int f = 0;
-        int maxch = 0;
-        for (i = 0; i < n; i++)
-        {
-            if (c[i] <= 1)
-                f++;
-        }
-        if (f == n)
-            printf("No Duplicates\n");
-        else
-        {
-            for (i = 0; i < n; i++)
+            if(c[i]>count)
             {
-                if (c[i] > c[maxch])
-                {
-                    maxch = i;
-                }
+                ans=i;
+                count=c[i];
             }
-            printf("\nCharacter=%c\t freq=%d", maxch + 97, c[maxch]);
         }
+        printf("Character : %c\nFrequency : %d",ans+97,count);
+        
     }
     return 0;
 }
