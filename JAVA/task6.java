@@ -31,11 +31,11 @@ class ArrayDemo {
         for (int m = 0; m < q; m++) {
             B[m] = temp[p + m];
         }
-        System.out.println("A : ");
+        System.out.print("\nA : ");
         for (int l = 0; l < A.length; l++) {
             System.out.print(A[l] + " ");
         }
-        System.out.println("\nB : ");
+        System.out.print("\nB : ");
         for (int l = 0; l < B.length; l++) {
             System.out.print(B[l] + " ");
         }
@@ -44,12 +44,12 @@ class ArrayDemo {
 
 public class task6 {
     public static void main(String[] args) {
-        ArrayDemo ob1 = new ArrayDemo();
+        ArrayDemo ob = new ArrayDemo();
         int[] arr = { 4, 6, 5, -10, 8, 5, 20 };
-        ob1.arrayFunc(arr, 10);
-        ArrayDemo ob2 = new ArrayDemo();
+        ob.arrayFunc(arr, 10);
+
         int[] A = { 1, 5, 6, 7, 8, 10 };
         int[] B = { 2, 4, 9 };
-        ob2.arrayFunc(A, 6, B, 3);
+        ob.arrayFunc(A, 6, B, 3);
     }
 }
