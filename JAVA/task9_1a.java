@@ -1,5 +1,5 @@
 //thread implementation by extending thread class
-//output will not be synchronized
+//output will not be synchronized and will be interleaved (even inside the same function)
 
 class myThread1 extends Thread {
     public void run() {
