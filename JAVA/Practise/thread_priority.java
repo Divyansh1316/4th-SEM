@@ -21,6 +21,7 @@ public class thread_priority {
         newThread t5 = new newThread("Shyam");
         t5.setPriority(Thread.MAX_PRIORITY);
         // or t5.setPriority(10); //values can be 1-10
+        // by default priority is 5 (NORM_PRIORITY)
 
         t1.setPriority(Thread.MIN_PRIORITY);
         t2.setPriority(Thread.MIN_PRIORITY);
