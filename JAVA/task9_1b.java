@@ -1,4 +1,5 @@
 //thread implementation using runnable interface
+//output will not be synchronized
 
 class myThreadRunnable1 implements Runnable {
     public void run() {
