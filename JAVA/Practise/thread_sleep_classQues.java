@@ -8,9 +8,9 @@ class CSThread extends Thread {
         try {
             for (int i = 0; i < 10; i++) {
                 System.out.println("Thanks  1");
-                sleep(1000);
                 System.out.println(++count);
                 System.out.println(getName());
+                sleep(1000);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -24,9 +24,9 @@ class ITThread extends Thread {
         try {
             for (int i = 0; i < 10; i++) {
                 System.out.println("Thanks  2");
-                sleep(1000);
                 System.out.println(++count);
                 System.out.println(getName());
+                sleep(1000);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
