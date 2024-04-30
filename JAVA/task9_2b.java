@@ -1,4 +1,5 @@
 //synchronized block:
+//synchronized block has a perfect critical area so two objects work
 
 //if we remove this synchronized block then it will give interleaved output because multiple threads will be accessing the print method concurrently.
 
@@ -33,5 +34,12 @@ public class task9_2b {
         mt1.start();
         myThr mt2 = new myThr(ci, "Ansh");
         mt2.start();
+        
+        //two objects will still work
+        //synchronized block has a perfect critical area so two objects work
+
+        //clg1 ci2 = new clg1();
+        // myThr mt2 = new myThr(ci2, "Ansh");
+        // mt2.start();
     }
 }
