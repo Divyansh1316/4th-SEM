@@ -1,4 +1,8 @@
-class newThread1 extends Thread {
+/*
+Implement a program that creates two threads- one thread with the name CSThread and other ITThread and execute after a gap of 1000 miliseconds. Each thread should also display a number indicating the number of times it got a chance to execute.
+*/
+
+class CSThread extends Thread {
     public void run() {
         int count = 0;
         try {
@@ -14,7 +18,7 @@ class newThread1 extends Thread {
     }
 }
 
-class newThread2 extends Thread {
+class ITThread extends Thread {
     public void run() {
         int count = 0;
         try {
@@ -32,10 +36,9 @@ class newThread2 extends Thread {
 
 public class thread_sleep_classQues {
     public static void main(String[] args) {
-        newThread1 t1 = new newThread1();
+        CSThread t1 = new CSThread();
         t1.start();
-        newThread2 t2 = new newThread2();
-
+        ITThread t2 = new ITThread();
         t2.start();
     }
 }
