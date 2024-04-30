@@ -6,8 +6,12 @@ class myClass {
             arr[i] = 0;
         }
         int k = 0, count = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == '0') {
+        if (s.charAt(0) == '0') {
+            arr[k] = 0;
+            k++;
+        }
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == '0' && s.charAt(i - 1) != '0') {
                 arr[k] = i;
                 k++;
             }
@@ -26,7 +30,7 @@ class myClass {
 
 public class task8_3 {
     public static void main(String[] args) {
-        String s1 = "011010111";
+        String s1 = "0101100101011";
         myClass ob = new myClass();
         ob.func(s1);
     }
