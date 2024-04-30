@@ -1,4 +1,5 @@
 //thread implementation by extending thread class
+//output will not be synchronized
 
 class myThread1 extends Thread {
     public void run() {
