@@ -11,23 +11,16 @@ Output  will be - 4
 import java.io.*;
 
 public class task10_3 {
-    static boolean isPalindrome(String str) {
-        int low = 0;
-        int high = str.length() - 1;
-
-        // Keep comparing characters while they are same
-        while (low < high) {
-            if (str.charAt(low) != str.charAt(high)) {
-                return false; // not a palindrome.
-            }
-            low++; // move the low index forward
-            high--; // move the high index backwards
-        }
-        return true; // is a palindrome
-    }
-
     public static void main(String[] args) {
         try {
+            FileWriter fr1 = new FileWriter("/home/geu/Desktop/d312/myfile.txt", true);
+            // fr1.write("My name is NITIN");
+            // fr1.write("\nHello aaa and bbb word");
+            // fr1.write("\nHow are You");
+            // fr1.write("\nARORA is my friend");
+            // fr1.write("\nNAMAN");
+            fr1.write(" ");
+            fr1.close();
             FileReader fr = new FileReader("/home/geu/Desktop/d312/myfile.txt");
             String words = "";
             String word;
