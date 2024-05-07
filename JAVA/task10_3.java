@@ -31,10 +31,17 @@ public class task10_3 {
                     if (word.length() > 0) {
                         start = i + 1;
                     }
+                    int flag = 0;
                     for (int j = 0; j < word.length() / 2; j++) {
                         if (word.charAt(j) == word.charAt(word.length() - j - 1)) {
-                            vword++;
+                            flag = 1;
+                        } else {
+                            flag = 0;
+                            break;
                         }
+                    }
+                    if (flag == 1) {
+                        vword++;
                     }
                 }
             }
