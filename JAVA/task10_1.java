@@ -1,52 +1,61 @@
 class shop {
+    boolean item_available = false;
     int item;
-    boolean x = false;
 
-    synchronized public void produce(int a) {
-        item = a;
+    synchronized public void produce(int x) {
         try {
-            while (x) {
+            if (item_available) {
+                System.out.println("Waiting for consumer to consume the item");
                 wait();
             }
-            System.out.println(item + " item is being produced by the producer");
-            x = true;
-            notify();
-            System.out.println("waiting for the consumer to consume the item");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-
-        catch (InterruptedException e) {
-            System.out.println(e.getMessage());
-        }
+        item = x;
+        item_available = true;
+        System.out.println(item + " has been produced");
+        notify();
     }
 
     synchronized public void consume() {
         try {
-            while (!x) {
+            if (!item_available) {
+                System.out.println("Waiting for producer to produce the item");
                 wait();
             }
-            System.out.println(item + " item is being consumed by the consumer");
-            x = false;
-            notify();
-
         } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
-
+        item_available = false;
+        System.out.println(item + " has been consumed");
+        notify();
     }
 }
 
-class vendor extends Thread {
+class Producer extends Thread {
     shop ob;
 
-    vendor(shop ob) {
+    Producer(shop ob) {
         this.ob = ob;
     }
 
     public void run() {
         for (int i = 1; i <= 10; i++) {
             ob.produce(i);
-            ob.consume();
+        }
+    }
+}
 
+class Consumer extends Thread {
+    shop ob;
+
+    Consumer(shop ob) {
+        this.ob = ob;
+    }
+
+    public void run() {
+        for (int i = 1; i <= 10; i++) {
+            ob.consume();
         }
     }
 }
@@ -54,7 +63,9 @@ class vendor extends Thread {
 public class task10_1 {
     public static void main(String[] args) {
         shop ob = new shop();
-        vendor ab = new vendor(ob);
-        ab.start();
+        Producer pr = new Producer(ob);
+        Consumer cr = new Consumer(ob);
+        pr.start();
+        cr.start();
     }
 }
